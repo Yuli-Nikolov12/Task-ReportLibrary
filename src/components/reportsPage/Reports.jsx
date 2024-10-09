@@ -1,5 +1,8 @@
 import './Reports.css'
+
 import { useState, useEffect } from 'react'
+import { Link } from "react-router-dom";
+
 import reportsApi from '../../api/reports-api'
 
 export default function Reports() {
@@ -38,16 +41,20 @@ export default function Reports() {
     
     const allReports = [...extractReportListFromHtml()].slice(1);
     return (
-        <div className='accordion'>
-            <ul className='accordion-module'>
-                {allReports.map((report) => 
-                    <li className='accordion accordion-toggle' key={report.dataset.thumbnail}>
-                        <a className='accordion-toggle' href='#' data-widget="grid">
-                            <h2 className='accordion-header'>{getHeaders(report.innerHTML)[0].textContent}</h2>
-                        </a>
-                    </li>
-                )}
-            </ul>
-        </div>
+        <>
+            <h1>Task 1 - Report Library</h1>
+            <h2>Please, select the report you want to export in the desired format!</h2>
+            <div className='accordion'>
+                <ul className='accordion-module'>
+                    {allReports.map((report) => 
+                        <li className='accordion accordion-toggle' key={report.dataset.thumbnail}>
+                            <Link className='accordion-toggle' to={`/${report.dataset.thumbnail}/exportFormat`} data-widget="grid">
+                                <h2 className='accordion-header'>{getHeaders(report.innerHTML)[0].textContent}</h2>
+                            </Link>
+                        </li>
+                    )}
+                </ul>
+            </div>
+        </>
     )
 }
