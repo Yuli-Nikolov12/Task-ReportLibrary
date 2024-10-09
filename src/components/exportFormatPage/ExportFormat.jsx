@@ -7,8 +7,28 @@ import reportFormatsApi from '../../api/reportFormats-api'
 import clientAndInstanceApi from '../../api/clientAndInstance-api';
 
 export default function ExportFormat() {
+    const dict = {
+      'crypto-dashboard': "Crypto Report.trdx",
+      'conference-report': "Conference Report.trdx",
+      'dashboard': "Dashboard.trdx",
+      'crypto-currency-info': "",
+      'invoice': "Invoice.trdx",
+      'swiss-qr-bill-report': "SwissQRBill.trdx",
+      'barcodes-report': "Barcodes Report.trdx",
+      'product-sales': "Product Sales.trdx",
+      'employee-sales':"Employee Sales Summary.trdx",
+      'product-line-sales':"Product Line Sales.trdx",
+      'sales-dashboard':"SalesByRegionDashboard.trdx",
+      'report-book':"ReportBook.trbp",
+      'crypto-currencies':"CryptoCurrencies.trdx",
+      'list-bound-report':"ListBoundReport.trdx",
+      'product-catalog':"Product Catalog.trdx",
+      'product-tag-report':"Product Tag Report.trdx",
+      'olympic-medals-map':"OlympicMedalsByNationalTeams.trdx",
+      'population-density':"PopulationDensity.trdx",
+    };
+
     const [formats, setFormats] = useState([]);
-    const [report, setReport] = useState('Dashboard.trdx');
     const [clinetValue, setClientValue] = useState('');
     const [instanceValue, setInstanceValue] = useState('');
     const [selectedOption, setselectedOption] = useState('');
@@ -20,7 +40,7 @@ export default function ExportFormat() {
       ( async () => {
         const formatsApi = await reportFormatsApi.allAvailableFormats();
 
-        const {clientID, instnaceID} = await clientAndInstanceApi.clientIDAndInstanceID(report);
+        const {clientID, instnaceID} = await clientAndInstanceApi.clientIDAndInstanceID(dict[reportThumbnail]);
 
         setFormats(formatsApi)
         setClientValue(Object.values(clientID))
