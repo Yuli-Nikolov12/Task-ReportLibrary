@@ -12,13 +12,18 @@ async function requester(method, url, data) {
 
         options.body = JSON.stringify(data);
     }
-
+    console.log(data)
+    console.log(options.body)
     const response = await fetch(url, options);
-
+    
+    if (response.status === 202 && method === 'GET') {
+        return response;
+    }
+    
     const result = await response.json();
-
+    
     if(!response.ok){
-        throw result;
+        throw new Error (result.message);
     }
 
     return result;

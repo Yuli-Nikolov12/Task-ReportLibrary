@@ -7,8 +7,6 @@ import reportsApi from '../../api/reports-api'
 
 export default function Reports() {
     const [reports, setReports] = useState(null);
-    const [listWithReports, setListWithReports] = useState({});
-    
 
     useEffect(() => {
       ( async () => {
@@ -19,13 +17,11 @@ export default function Reports() {
       )();
     }, []);
 
-
     const extractReportListFromHtml = () => {
         const parser = new DOMParser();
         const doc = parser.parseFromString(reports, "text/html")
         
         const listOfReports = doc.getElementsByClassName('accordion-item')
-        console.log(listOfReports);
 
         return  listOfReports;
     }

@@ -31,7 +31,7 @@ export default function ExportFormat() {
     const [formats, setFormats] = useState([]);
     const [clinetValue, setClientValue] = useState('');
     const [instanceValue, setInstanceValue] = useState('');
-    const [selectedOption, setselectedOption] = useState('');
+    const [selectedOption, setSelectedOption] = useState('');
 
     const navigate = useNavigate();
     const {reportThumbnail} = useParams();
@@ -51,7 +51,7 @@ export default function ExportFormat() {
 
     const handleChange = (e) => {
 
-      setselectedOption(e.target.value);
+      setSelectedOption(e.target.value);
     }
 
     return (
@@ -66,7 +66,7 @@ export default function ExportFormat() {
         </div>
         <div className='divButtons'>
           <span />
-          <Link to={`/${reportThumbnail}/result`} state={{ clientID: {clinetValue}, instanceID: {instanceValue}, selecteValue: {selectedOption} }} >
+          <Link to={`/${reportThumbnail}/result`} state={{ clientID: {clinetValue}, instanceID: {instanceValue}, selecteFormat: {selectedOption} }} >
             <button >Next to The Result</button>
           </Link>
           <span />
