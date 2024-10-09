@@ -35,11 +35,10 @@ export const getDocuementInfo = async (clientID, instanceID, docID) => {
 export const downloadDocument = async (clientID, instanceID, docID) => {
     const options = {};
     options.method = 'GET';
-    options.headers = {
-        'Sec-Fetch-Dest': 'document',
-    }
 
-    await fetch(`${BASE_CLIENT_URL}/${clientID}/instances/${instanceID}/documents/${docID}?response-content-disposition=attachment`, options);
+    const donwloadBite = await fetch(`${BASE_CLIENT_URL}/${clientID}/instances/${instanceID}/documents/${docID}?response-content-disposition=attachment`, options);
+
+    window.location.href = donwloadBite.url;
 }
 
 
