@@ -1,8 +1,5 @@
-# React + Vite
+# Task - Report Library using React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+*To start the project you need to execute the following commands in the terminal:
+- [x] In the Project folder run: 'npm i'
+- [x] When the install is completed run: 'npm run dev' command to start the app. 
