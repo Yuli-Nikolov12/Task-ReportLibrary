@@ -53,7 +53,7 @@ export default function Result() {
             }
             <button disabled={disableButton} onClick={handleClick}>Downolad</button>
             <h2>Below is a preview of the first page of the report: </h2>
-            <div dangerouslySetInnerHTML={{__html: reportPreview.pageContent}} />
+            <div className='reportPreivew' dangerouslySetInnerHTML={{__html: reportPreview.pageContent}} />
         </>
     )
 }
