@@ -26,7 +26,7 @@ export default function Reports() {
         return  listOfReports;
     }
 
-    const getHeaders = (prop) => {
+    const getReportHeaders = (prop) => {
         const parser = new DOMParser();
         const doc = parser.parseFromString(prop, "text/html")
         
@@ -45,7 +45,7 @@ export default function Reports() {
                     {allReports.map((report) => 
                         <li className='accordion accordion-toggle' key={report.dataset.thumbnail}>
                             <Link className='accordion-toggle' to={`/${report.dataset.thumbnail}/exportFormat`} data-widget="grid">
-                                <h2 className='accordion-header'>{getHeaders(report.innerHTML)[0].textContent}</h2>
+                                <h2 className='accordion-header'>{getReportHeaders(report.innerHTML)[0].textContent}</h2>
                             </Link>
                         </li>
                     )}

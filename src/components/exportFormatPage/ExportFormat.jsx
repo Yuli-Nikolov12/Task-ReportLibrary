@@ -7,7 +7,7 @@ import reportFormatsApi from '../../api/reportFormats-api'
 import clientAndInstanceApi from '../../api/clientAndInstance-api';
 
 export default function ExportFormat() {
-    const dict = {
+    const dictWithAllReports = {
       'crypto-dashboard': "Crypto Report.trdx",
       'conference-report': "Conference Report.trdx",
       'dashboard': "Dashboard.trdx",
@@ -40,7 +40,7 @@ export default function ExportFormat() {
       ( async () => {
         const formatsApi = await reportFormatsApi.allAvailableFormats();
 
-        const {clientID, instnaceID} = await clientAndInstanceApi.clientIDAndInstanceID(dict[reportThumbnail]);
+        const {clientID, instnaceID} = await clientAndInstanceApi.clientIDAndInstanceID(dictWithAllReports[reportThumbnail]);
 
         setFormats(formatsApi)
         setClientValue(Object.values(clientID))
@@ -50,7 +50,6 @@ export default function ExportFormat() {
     }, []);
 
     const handleChange = (e) => {
-
       setSelectedOption(e.target.value);
     }
 
